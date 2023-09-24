@@ -2,15 +2,15 @@
   <div class="login-container">
     <div class="logo" />
     <div class="form">
-      <h1>登录页面</h1>
+      <h1>登录</h1>
       <el-card shadow="never" class="login-card">
         <!--登录表单-->
-        <el-form>
-          <el-form-item>
-            <el-input placeholder="请输入账号" />
+        <el-form ref="form" :model="loginForm" :rules="loginRules">
+          <el-form-item prop="account">
+            <el-input v-model="loginForm.account" placeholder="请输入账号" />
           </el-form-item>
-          <el-form-item>
-            <el-input placeholder="请输入密码" />
+          <el-form-item prop="password">
+            <el-input v-model="loginForm.password" show-password placeholder="请输入密码" />
           </el-form-item>
           <el-form-item>
             <el-button style="width:350px" type="primary">登录</el-button>
@@ -22,7 +22,39 @@
 </template>
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  data() {
+    return {
+      loginForm: {
+        account: '',
+        password: ''
+      },
+      loginRules: {
+        account: [{
+          required: true,
+          message: '请输入账号',
+          triggle: 'blur'
+        },
+        {
+          min: 6,
+          max: 16,
+          message: '账号长度在6~16位',
+          triggle: 'blur'
+        }],
+        password: [{
+          required: true,
+          message: '请输入密码',
+          triggle: 'blur'
+        },
+        {
+          min: 6,
+          max: 16,
+          message: '密码长度在6~16位',
+          triggle: 'blur'
+        }]
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">
