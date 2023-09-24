@@ -2,9 +2,20 @@
   <div class="login-container">
     <div class="logo" />
     <div class="form">
-      <h1>登录</h1>
+      <h1>登录页面</h1>
       <el-card shadow="never" class="login-card">
         <!--登录表单-->
+        <el-form>
+          <el-form-item>
+            <el-input placeholder="请输入账号" />
+          </el-form-item>
+          <el-form-item>
+            <el-input placeholder="请输入密码" />
+          </el-form-item>
+          <el-form-item>
+            <el-button style="width:350px" type="primary">登录</el-button>
+          </el-form-item>
+        </el-form>
       </el-card>
     </div>
   </div>
