@@ -7,7 +7,7 @@
         <!--登录表单-->
         <el-form ref="form" :model="loginForm" :rules="loginRules">
           <el-form-item prop="username">
-            <el-input v-model="loginForm.username" placeholder="请输入管理员账号" />
+            <el-input v-model="loginForm.username" placeholder="请输入账号" />
           </el-form-item>
           <el-form-item prop="password">
             <el-input v-model="loginForm.password" show-password placeholder="请输入密码" />
@@ -32,7 +32,7 @@ export default {
       loginRules: {
         username: [{
           required: true,
-          message: '请输入管理员账号',
+          message: '请输入账号',
           triggle: 'blur'
         }],
         password: [{
