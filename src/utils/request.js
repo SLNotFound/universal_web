@@ -17,8 +17,8 @@ service.interceptors.request.use((config) => {
 })
 
 service.interceptors.response.use((response) => {
-  const { data, message, success } = response.data
-  if (success) {
+  const { data, message, code } = response.data
+  if (code === 200) {
     return data
   } else {
     Message({ type: 'error', message })
