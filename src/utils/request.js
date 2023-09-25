@@ -3,7 +3,7 @@ import store from '@/store'
 import { Message } from 'element-ui'
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: 'http://127.0.0.1:8089',
   timeout: 10000
 })
 

@@ -36,12 +36,12 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: {
-      '/api': {
-        target: 'https://heimahr.itheima.net'
-      }
-    }
-    // before: require('./mock/mock-server.js')
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://127.0.0.1:8089'
+    //   }
+    // }
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

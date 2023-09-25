@@ -6,16 +6,11 @@
       <el-card shadow="never" class="login-card">
         <!--登录表单-->
         <el-form ref="form" :model="loginForm" :rules="loginRules">
-          <el-form-item prop="mobile">
-            <el-input v-model="loginForm.mobile" placeholder="请输入手机号" />
+          <el-form-item prop="username">
+            <el-input v-model="loginForm.username" placeholder="请输入手机号" />
           </el-form-item>
           <el-form-item prop="password">
             <el-input v-model="loginForm.password" show-password placeholder="请输入密码" />
-          </el-form-item>
-          <el-form-item prop="isAgree">
-            <el-checkbox v-model="loginForm.isAgree">
-              用户平台使用协议
-            </el-checkbox>
           </el-form-item>
           <el-form-item>
             <el-button style="width:350px" type="primary" @click="login">登录</el-button>
@@ -31,19 +26,13 @@ export default {
   data() {
     return {
       loginForm: {
-        mobile: '',
-        password: '',
-        isAgree: false
+        username: '',
+        password: ''
       },
       loginRules: {
-        mobile: [{
+        username: [{
           required: true,
-          message: '请输入手机号',
-          triggle: 'blur'
-        },
-        {
-          pattern: /^1[3-9]\d{9}$/,
-          message: '手机号格式不正确',
+          message: '请输入管理员账号',
           triggle: 'blur'
         }],
         password: [{
@@ -52,15 +41,10 @@ export default {
           triggle: 'blur'
         },
         {
-          min: 6,
+          min: 3,
           max: 16,
-          message: '密码长度在6~16位',
+          message: '密码长度在3~16位',
           triggle: 'blur'
-        }],
-        isAgree: [{
-          validator: (rule, value, callback) => {
-            value ? callback() : callback(new Error('没有勾选用户平台协议'))
-          }
         }]
       }
     }
@@ -84,7 +68,7 @@ export default {
   height: 100vh;
   .logo {
     flex: 3;
-    background: rgba(38, 72, 176) url(../../assets/common/login_back.png)
+    background: rgba(38, 72, 176) url(../../assets/common/login-bg.png)
       no-repeat center / cover;
     border-top-right-radius: 60px;
     display: flex;
