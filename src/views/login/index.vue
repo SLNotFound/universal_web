@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: process.env.NODE_ENV === 'development' ? 'admin' : '',
+        password: process.env.NODE_ENV === 'development' ? '123' : ''
       },
       loginRules: {
         username: [{
