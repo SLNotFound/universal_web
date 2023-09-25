@@ -50,11 +50,12 @@ export default {
     }
   },
   methods: {
-    login() {
-      this.$refs.form.validate((isOK) => {
+    async login() {
+      this.$refs.form.validate(async(isOK) => {
         if (isOK) {
           // alert('校验通过')
-          this.$store.dispatch('user/login', this.loginForm)
+          await this.$store.dispatch('user/login', this.loginForm)
+          this.$router.push('/')
         }
       })
     }
